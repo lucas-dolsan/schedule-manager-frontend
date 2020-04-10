@@ -1,0 +1,85 @@
+{
+  "cronogramas": [
+      {
+          "uuid": "d0ffc678-6414-4e0b-9727-e673d5391abe",
+          "dataInicioAgendada": "24-03-2020",
+          "dataInicio": "24-03-2020",
+          "dataFimAgendada": "06-04-2020",
+          "dataFim": "06-04-2020",
+          "encarregado": {
+              "uuid": "0cbeaeb8-4bcd-43e1-9ec9-ec9ad2866e36",
+              "nome": "Rodrigo Souza Tassoni",
+              "matricula": "45",
+              "setor": {
+                "uuid": "48e54769-7fae-4917-a3d5-6aaafdd5224b",  
+                "tipo": "manutenção"
+              }
+          },
+          "atividades": [
+                {
+                    "uuid": "683d7996-8ca8-4a0f-81af-53344ff784bc",
+                    "descricao": "Gerador bienal (elétrica)",
+                    "observacao": "Cuidado ao abrir a porta do gerador",
+                    "dataInicioAgendada": "25-03-2020 08:30",
+                    "dataInicio": "25-03-2020 08:35",
+                    "dataFimAgendada": "25-03-2020 17:30",
+                    "dataFim": "25-03-2020 17:45",
+                    "OS": "583856",
+                    "AES": "31245",
+                    "executor": {
+                        "uuid": "ceb9b4fa-353e-46ef-9d1c-024fe98e325b",
+                        "tipo": "eletricista",
+                        "nome": "Lucas Dolsan Pereira",
+                        "matricula": "17",
+                        "setor": {
+                            "uuid": "48e54769-7fae-4917-a3d5-6aaafdd5224b",  
+                            "tipo": "manutenção"
+                        }
+                    }
+                },
+                {
+                    "uuid": "677c5c21-2bbc-47f0-b188-2fe2a7a03803",
+                    "descricao": "Gerador anual (mecânica)",
+                    "observacao": "Certifique-se que a temperatura ambiente está em condições adequadas dentro do housing do gerador",
+                    "dataInicioAgendada": "25-03-2020 09:30",
+                    "dataInicio": "25-03-2020 09:30",
+                    "dataFimAgendada": "25-03-2020 11:35",
+                    "dataFim": "25-03-2020 11:20",
+                    "OS": "658435",
+                    "AES": "46901",
+                    "executor": {
+                        "uuid": "aa2109c8-ce8c-4b44-84a6-819b991d7416",
+                        "tipo": "mecânico",
+                        "nome": "Gabriel Willemann",
+                        "matricula": "24",
+                        "setor": {
+                            "uuid": "48e54769-7fae-4917-a3d5-6aaafdd5224b",  
+                            "tipo": "manutenção"
+                        }
+                    }
+                },
+                {
+                    "uuid": "ab16db1c-3632-432d-b61b-85c9acafc326",
+                    "descricao": "Reforçar porta escovas de carvão",
+                    "observacao": "",
+                    "dataInicioAgendada": "27-03-2020 13:30",
+                    "dataInicio": "27-03-2020 13:00",
+                    "dataFimAgendada": "29-03-2020 10:30",
+                    "dataFim": "26-03-2020 18:50",
+                    "OS": "785536",
+                    "AES": "56545",
+                    "executor": {
+                        "uuid": "ceb9b4fa-353e-46ef-9d1c-024fe98e325b",
+                        "tipo": "eletricista",
+                        "nome": "Lucas Dolsan Pereira",
+                        "matricula": "17",
+                        "setor": {
+                            "uuid": "48e54769-7fae-4917-a3d5-6aaafdd5224b",  
+                            "tipo": "manutenção"
+                        }
+                    }
+                }
+          ]
+      }
+  ]  
+}
