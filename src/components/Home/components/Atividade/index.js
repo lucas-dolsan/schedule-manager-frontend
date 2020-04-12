@@ -1,0 +1,1 @@
+export { default as Atividade } from './Atividade.jsx';
