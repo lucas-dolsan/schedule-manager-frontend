@@ -10,6 +10,7 @@ function renderCronogramas(cronogramas) {
 
 function Home() {
     const [cronogramas, setCronogramas] = useState(null)
+
     useEffect(async () => {
         const data = await dataProvider.getList(endpoints.TESTS.CRONOGRAMAS)
         setCronogramas(data.cronogramas)

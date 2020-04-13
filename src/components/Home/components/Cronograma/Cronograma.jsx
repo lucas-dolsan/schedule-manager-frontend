@@ -6,9 +6,6 @@ import { Encarregado} from '../Encarregado';
 function renderAtividades(atividades) {
     return atividades.map(atividade => <Atividade key= {atividade.uuid} atividade={atividade} /> )
 }
-function renderEncarregado(encarregado) {
-    return encarregado.map(encarregado => <Encarregado key= {encarregado.uuid} encarregado={encarregado} /> )
-}
 
 function Cronograma({ cronograma }) {
     return (
@@ -18,7 +15,7 @@ function Cronograma({ cronograma }) {
             <h3>Data de fim agendada: {cronograma.dataFimAgendada}</h3>
             <h3>Data de fim: {cronograma.dataFim}</h3>
             <h3>Encarregado: </h3>
-            {renderEncarregado(cronograma.encarregado)}
+            <Encarregado key={cronograma.encarregado.nome} encarregado={cronograma.encarregado} />
             {renderAtividades(cronograma.atividades)}
         </div>
     )
