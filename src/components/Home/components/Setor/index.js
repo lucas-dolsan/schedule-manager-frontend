@@ -1,0 +1,1 @@
+export { default as Setor } from './Setor.jsx';

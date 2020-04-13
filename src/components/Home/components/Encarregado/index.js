@@ -1,0 +1,1 @@
+export { default as Encarregado } from './Encarregado.jsx';
