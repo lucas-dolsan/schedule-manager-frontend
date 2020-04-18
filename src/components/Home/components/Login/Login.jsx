@@ -6,11 +6,15 @@ function Login(login) {
     return (
         <div style={styles.container}>
             <h4>Login: </h4>
-            <h4>       </h4>
+            <input type="text" name="name" />
             <h4>Senha: </h4>
-            <h4>       </h4>
-            <button>Vai!</button>
-            <button>Esqueci a Senha</button>
+            <input type="text" name="senha" />
+            <br/>
+            <div style={styles.button}>
+                <button>Vai!</button>
+                <button style={{marginLeft:'5px'}}>Esqueci a Senha</button>
+            </div>
+
         </div>
     )
 }
