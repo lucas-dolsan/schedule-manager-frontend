@@ -20,7 +20,17 @@ async function getList(endpoint) {
     }
 }
 
+async function login(credentials) {
+    try {
+        const response = await axios.post(`${remoteServerAddress}/login`, credentials)
+        return response.data
+    } catch (error) {
+        throw error
+    }
+}
+
 export default {
     getOne,
     getList,
+    login,
 }
