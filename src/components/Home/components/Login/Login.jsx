@@ -15,4 +15,4 @@ function Login(login) {
     )
 }
 
-export default Encarregado
+export default Login
