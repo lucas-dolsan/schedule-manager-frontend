@@ -3,7 +3,7 @@ import styles from './styles';
 
 function Setor(setor) {
     return (
-        <div styles={{backgroundColor: 'red'}}>
+        <div style={styles.container}>
             <h4>Tipo: {setor.tipo}</h4>
         </div>
     )

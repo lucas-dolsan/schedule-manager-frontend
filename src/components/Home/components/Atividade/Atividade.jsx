@@ -5,7 +5,7 @@ function Atividade({ atividade }) {
     console.log(styles.container)
 
     return (
-        <div styles={{backgroundColor: 'red'}}>
+        <div style={styles.container}>
             <h4>Descrição {atividade.descricao}</h4>
             <h4>Observação: {atividade.observacao}</h4>
             <h4>Data de início agendada: {atividade.dataInicioAgendada}</h4>

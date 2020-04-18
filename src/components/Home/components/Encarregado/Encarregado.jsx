@@ -5,7 +5,7 @@ import {Setor} from '../Setor';
 
 function Encarregado(encarregado) {
     return (
-        <div styles={{backgroundColor: 'red'}}>
+        <div style={styles.container}>
             <h4>Nome: {encarregado.nome}</h4>
             <h4>Matrícula: {encarregado.matricula}</h4>
             <h4>Setor: </h4>

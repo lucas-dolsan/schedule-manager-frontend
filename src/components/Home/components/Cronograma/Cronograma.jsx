@@ -9,7 +9,7 @@ function renderAtividades(atividades) {
 
 function Cronograma({ cronograma }) {
     return (
-        <div styles={styles.container}>
+        <div style={styles.container}>
             <h3>Data de início agendada: {cronograma.dataInicioAgendada}</h3>
             <h3>Data de início: {cronograma.dataInicio}</h3>
             <h3>Data de fim agendada: {cronograma.dataFimAgendada}</h3>
