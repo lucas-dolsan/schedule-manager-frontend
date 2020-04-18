@@ -1,3 +1,3 @@
 export default {
-    container: { backgroundColor: 'whitesmoke', justifyContent: 'center' }
+    container: { backgroundColor: 'whitesmoke',  justifyContent: 'center' }
 }
