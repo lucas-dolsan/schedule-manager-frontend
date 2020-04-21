@@ -5,21 +5,21 @@ import dataProvider from '../../data-provider'
 import endpoints from '../../constants/endpoints';
 
 function renderCronogramas(cronogramas) {
-    return cronogramas.map(cronograma => <Cronograma key={cronograma.uuid} cronograma={cronograma}/> )
+  return cronogramas.map(cronograma => <Cronograma key={cronograma.uuid} cronograma={cronograma} />)
 }
 
 function Home() {
-    const [cronogramas, setCronogramas] = useState(null)
+  const [cronogramas, setCronogramas] = useState(null)
 
-    useEffect(() => {
+  useEffect(() => {
     async function getTestCronogramas() {
-        const data = await dataProvider.getList(endpoints.TESTS.CRONOGRAMAS)
-        setCronogramas(data.cronogramas)
+      const data = await dataProvider.getList(endpoints.TESTS.CRONOGRAMAS)
+      setCronogramas(data.cronogramas)
     }
     getTestCronogramas()
-    }, [])
+  }, [])
 
-    return cronogramas && renderCronogramas(cronogramas)
+  return cronogramas && renderCronogramas(cronogramas)
 }
 
 export default Home

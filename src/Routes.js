@@ -8,6 +8,7 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Redirect from={'/'} exact={true} to={'/login'} />
+        <Redirect from={'/'} exact={true} to={'/home'} />
         <Route path={'/home'} exact={true} component={props => <Home {...props} />} />
         <Route path={'/login'} exact={true} component={props => <Login {...props} />} />
       </Switch>
