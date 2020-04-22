@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './styles';
 import { Atividade } from '../Atividade';
 import { Encarregado } from '../Encarregado';
 import { NavBar } from '../NavBar'
@@ -12,7 +11,7 @@ function renderAtividades(atividades) {
 
 function Cronograma({ cronograma }) {
   return (
-    <div className="container border border-primary" style={styles.container}>
+    <div className="container border border-primary" >
       <NavBar logo={cronograma.nome} />
       {/*<ul class="list-group d-inline-flex">
         <li class="list-group-item">Data de início agendada: {cronograma.dataInicioAgendada}</li>
