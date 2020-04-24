@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Col, Button, Row, Card } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Form, Col, Button, Row } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
+import { Modal } from '../Modal'
 
 import dataProvider from '../../../../data-provider';
+
+
+
 
 function Login() {
   const [login, setLogin] = useState(null)
   const [password, setPassword] = useState(null)
+  const history = useHistory()
 
   async function onEnterButtonClick() {
     const credentials = { login, password }
-    await dataProvider.login(credentials)
+    const message = await dataProvider.login(credentials)
+    if (message.message === "Usuário inexistente")
+      Modal()
+  }
+  const routeCadastrar = () => {
+    history.push('/registrar')
   }
 
   return (
@@ -19,6 +30,7 @@ function Login() {
         width: "100%", maxWidth: "530px", padding: "15px",
         margin: "auto", height: "100%", border: "black"
       }}>
+
 
       {/*
       <div class="d-flex flex-column bg-light align-items-center mt-4">
@@ -62,10 +74,10 @@ function Login() {
 
       <Form.Group id="formGridCheckbox">
       </Form.Group>
-      <Button className="btn-lg btn-block" variant="dark" type="submit">
+      <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
         Submit
       </Button>
-      <Button className="btn-lg btn-block" variant="link">
+      <Button className="btn-lg btn-block" variant="link" to="/cadastro" onClick={routeCadastrar}>
         Cadastrar
       </Button>
     </Form>

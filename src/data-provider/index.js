@@ -3,34 +3,44 @@ const remoteServerAddress = 'http://localhost:3001'
 
 
 async function getOne(endpoint, uuid) {
-    try {
-        const response = await axios.get(`${remoteServerAddress}${endpoint}?id=${uuid}`)
-        return response.data
-    } catch (error) {
-        throw error
-    }
+  try {
+    const response = await axios.get(`${remoteServerAddress}${endpoint}?id=${uuid}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
 }
 
 async function getList(endpoint) {
-    try {
-        const response = await axios.get(`${remoteServerAddress}${endpoint}`)
-        return response.data
-    } catch (error) {
-        throw error
-    }
+  try {
+    const response = await axios.get(`${remoteServerAddress}${endpoint}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
 }
 
 async function login(credentials) {
-    try {
-        const response = await axios.post(`${remoteServerAddress}/authenticate`, credentials)
-        return response.data
-    } catch (error) {
-        throw error
-    }
+  try {
+    const response = await axios.post(`${remoteServerAddress}/authenticate`, credentials)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
+async function cadastrar(credentials) {
+  try {
+    const response = await axios.post(`${remoteServerAddress}/register`, credentials)
+    return response.data
+  } catch (error) {
+    throw error
+  }
 }
 
 export default {
-    getOne,
-    getList,
-    login,
+  getOne,
+  getList,
+  login,
+  cadastrar,
 }
