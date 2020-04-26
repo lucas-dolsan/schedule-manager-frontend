@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Form, Col, Button, Row } from 'react-bootstrap'
 import { Modal } from '../Modal'
 import { useHistory } from 'react-router-dom'
@@ -9,6 +9,8 @@ function Registrar() {
   const [login, setLogin] = useState(null)
   const [password, setPassword] = useState(null)
   const [confirmPassword, setConfirmPassword] = useState(null)
+  const history = useHistory()
+
 
   async function onEnterButtonClick() {
     if ((password && confirmPassword) && (password === confirmPassword)) {
@@ -53,13 +55,17 @@ function Registrar() {
 
   }
 
-  const modalRef = React.useRef()
+  const modalRef = useRef()
 
   const openModal = (alerta) => {
     modalRef.current.openModal(alerta)
+    console.log(modalRef.current)
   }
   const routeLogin = (caminho) => {
     modalRef.current.routerRedirect(caminho)
+  }
+  const routeLinkLogin = () => {
+    history.push('/login')
   }
 
   return (
@@ -74,7 +80,7 @@ function Registrar() {
         <Col lg="5">
         </Col>
       </Row>
-      <h2 className="text-center">Novo Cadastro</h2>
+      <h2 className="text-center">Novo Registro</h2>
       <h5 className="text-center">Login</h5>
 
       <Form.Row>
@@ -106,6 +112,8 @@ function Registrar() {
       <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
         Registrar
       </Button>
+      <Button className="btn-lg btn-block" variant="link" to="/login" onClick={routeLinkLogin}>Login</Button>
+
       <Modal ref={modalRef}></Modal>
     </Form>
 

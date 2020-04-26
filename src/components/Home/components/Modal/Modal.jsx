@@ -43,6 +43,7 @@ const Alerta = forwardRef((props, ref) => {
             <Button variant="secondary" onClick={close}>
               Close
             </Button>
+
           </Modal.Footer>
         </Modal>
       </>

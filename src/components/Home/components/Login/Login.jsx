@@ -23,7 +23,7 @@ function Login() {
         break
       default:
         openModal("Login Realizado com Sucesso!!")
-        routeHome("/home")
+        routeHome("/homeNav")
     }
 
   }

@@ -9,19 +9,14 @@ function renderAtividades(atividades) {
   return atividades.map(atividade => <Atividade key={atividade.uuid} atividade={atividade} />)
 }
 
+
+
 function Cronograma({ cronograma }) {
+
+
   return (
     <div className="container border border-primary" >
       <NavBar logo={cronograma.nome} />
-      {/*<ul class="list-group d-inline-flex">
-        <li class="list-group-item">Data de início agendada: {cronograma.dataInicioAgendada}</li>
-        <li class="list-group-item">Data de início: {cronograma.dataInicio}</li>
-        <li class="list-group-item">Data de fim agendada: {cronograma.dataFimAgendada}</li>
-        <li class="list-group-item">Data de fim: {cronograma.dataFim}</li>
-        <li class="list-group-item">Encarregado:</li>
-      </ul>
-      <Encarregado key={cronograma.encarregado.nome} encarregado={cronograma.encarregado} />
-      {renderAtividades(cronograma.atividades)} */}
 
       <table class="table table-hover table-bordered">
         <thead class="thead-dark">

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import data from '../../test_data/scheduler_data.json'
-import { Cronograma } from './components/Cronograma';
-import dataProvider from '../../data-provider'
-import endpoints from '../../constants/endpoints';
+import React, { useState, useEffect } from 'react';
+import { Cronograma } from '../Cronograma';
+import dataProvider from '../../../../data-provider'
+import endpoints from '../../../../constants/endpoints';
+
 
 function renderCronogramas(cronogramas) {
   return cronogramas.map(cronograma => <Cronograma key={cronograma.uuid} cronograma={cronograma} />)
