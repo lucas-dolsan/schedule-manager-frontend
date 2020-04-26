@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Form, Col, Button, Row } from 'react-bootstrap'
+import { Modal } from '../Modal'
+import { useHistory } from 'react-router-dom'
+import dataProvider from '../../../../data-provider'
 
-import dataProvider from '../../../../data-provider';
 
 function Registrar() {
   const [login, setLogin] = useState(null)
@@ -9,14 +11,55 @@ function Registrar() {
   const [confirmPassword, setConfirmPassword] = useState(null)
 
   async function onEnterButtonClick() {
-    if (login) {
-
-    } else if ((password && confirmPassword) && (password === confirmPassword)) {
+    if ((password && confirmPassword) && (password === confirmPassword)) {
       const credentials = { login, password }
-      await dataProvider.cadastrar(credentials)
-    } else {
+      const message = await dataProvider.cadastrar(credentials)
 
+      switch (message.message) {
+        case 'Senha deve possuir 8 ou mais caracteres':
+          openModal('Senha deve possuir 8 ou mais caracteres')
+          routeLogin("/registrar")
+          break
+        case 'Senha deve possuir 30 ou menos caracteres':
+          openModal('Senha deve possuir 30 ou menos caracteres')
+          routeLogin("/registrar")
+          break
+        case 'Login deve possuir 5 ou mais caracteres':
+          openModal('Login deve possuir 5 ou mais caracteres')
+          routeLogin("/registrar")
+          break
+        case 'Login deve possuir 20 ou menos caracteres':
+          openModal('Login deve possuir 20 ou menos caracteres')
+          routeLogin("/registrar")
+          break
+        case 'Login possui caracteres inválidos':
+          openModal('Login possui caracteres inválidos')
+          routeLogin("/registrar")
+          break
+        case 'Esse login já foi cadastrado':
+          openModal('Esse login já foi cadastrado')
+          routeLogin("/registrar")
+          break
+        default:
+          openModal("Registro Realizado com Sucesso!!")
+          routeLogin("/login")
+      }
+    } else {
+      openModal("Senha Não Confere")
+      routeLogin("/registrar")
     }
+
+
+
+  }
+
+  const modalRef = React.useRef()
+
+  const openModal = (alerta) => {
+    modalRef.current.openModal(alerta)
+  }
+  const routeLogin = (caminho) => {
+    modalRef.current.routerRedirect(caminho)
   }
 
   return (
@@ -63,7 +106,9 @@ function Registrar() {
       <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
         Registrar
       </Button>
+      <Modal ref={modalRef}></Modal>
     </Form>
+
   )
 }
 

@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Col, Button, Row } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
 import { Modal } from '../Modal'
-
+import { useHistory } from 'react-router-dom'
 import dataProvider from '../../../../data-provider';
-
-
-
 
 function Login() {
   const [login, setLogin] = useState(null)
@@ -16,12 +12,33 @@ function Login() {
   async function onEnterButtonClick() {
     const credentials = { login, password }
     const message = await dataProvider.login(credentials)
-    if (message.message === "Usuário inexistente")
-      Modal()
+    switch (message.message) {
+      case 'Usuário inexistente':
+        openModal('Usuário inexistente')
+        routeHome("/login")
+        break
+      case 'Senha incorreta':
+        openModal('Senha incorreta')
+        routeHome("/login")
+        break
+      default:
+        openModal("Login Realizado com Sucesso!!")
+        routeHome("/home")
+    }
+
   }
+
   const routeCadastrar = () => {
     history.push('/registrar')
   }
+  const modalRef = React.useRef();
+
+  const openModal = (alerta) => {
+    modalRef.current.openModal(alerta)
+  };
+  const routeHome = (caminho) => {
+    modalRef.current.routerRedirect(caminho)
+  };
 
   return (
 
@@ -31,31 +48,12 @@ function Login() {
         margin: "auto", height: "100%", border: "black"
       }}>
 
-
-      {/*
-      <div class="d-flex flex-column bg-light align-items-center mt-4">
-        <div style={styles.container}>
-        <h4>Login: </h4>
-      <input onChange={event => setLogin(event.target.value)} type="text" name="name"
-      value={login} />
-      <h4>Senha: </h4>
-      <input onChange={event => setPassword(event.target.value)} type="text" name="senha"
-      value={password} />
-      <br />
-      <div style={styles.button}>
-        <button onClick={onEnterButtonClick}>Entrar</button>
-        <button style={{ marginLeft: '5px' }}>Esqueci a Senha</button>
-      </div>
-    </div>*/}
-
-
       <Row className="justify-content-md-center">
         <Col lg="5">
         </Col>
       </Row>
       <h2 className="text-center">Gerenciador de Cronogramas</h2>
       <h5 className="text-center">Login</h5>
-
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Login</Form.Label>
@@ -63,8 +61,8 @@ function Login() {
             type="text" placeholder="Digite o Login" name="name" value={login} />
         </Form.Group>
       </Form.Row>
-      <Form.Row>
 
+      <Form.Row>
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Senha</Form.Label>
           <Form.Control onChange={event => setPassword(event.target.value)}
@@ -80,6 +78,7 @@ function Login() {
       <Button className="btn-lg btn-block" variant="link" to="/cadastro" onClick={routeCadastrar}>
         Cadastrar
       </Button>
+      <Modal ref={modalRef}></Modal>
     </Form>
   )
 }
