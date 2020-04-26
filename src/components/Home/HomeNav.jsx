@@ -24,7 +24,6 @@ function HomeNav() {
           This is a modified jumbotron that occupies the entire horizontal space of
           its parent.
     </p>
-        <Image className="w-10 h-10" src={imagem} Fluid />
       </Container>
     </>
   )
