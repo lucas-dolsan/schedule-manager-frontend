@@ -6,7 +6,7 @@ var caminho = ""
 const Alerta = forwardRef((props, ref) => {
   const [show, setShow] = useState(false)
   const history = useHistory()
-  const [value, setValue] = useState("false")
+  const [value, setValue] = useState("")
 
   useImperativeHandle(ref, () => {
     return {
@@ -33,7 +33,7 @@ const Alerta = forwardRef((props, ref) => {
   if (show) {
     return (
       <>
-        <Modal show={show} onHide={() => setShow(false)} animation={false}>
+        <Modal show={show} onHide={() => setShow(false)} animation={true}>
           <Modal.Header closeButton>
           </Modal.Header>
           <Modal.Body className="text-center">
@@ -41,7 +41,7 @@ const Alerta = forwardRef((props, ref) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={close}>
-              Close
+              Fechar
             </Button>
 
           </Modal.Footer>

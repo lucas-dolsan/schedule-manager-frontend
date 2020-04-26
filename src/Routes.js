@@ -10,9 +10,9 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect from={'/'} exact={true} to={'/home'} />
-        <Route path={'/homeNav'} exact={true} component={props => <HomeNav {...props} />} />
-        <Route path={'/homeNav/home'} exact={true} component={props => <Home {...props} />} />
+        <Redirect from={'/'} exact={true} to={'/login'} />
+        <Route path={'/home'} exact={true} component={props => <HomeNav {...props} />} />
+        <Route path={'/cronogramas'} exact={true} component={props => <Home {...props} />} />
         <Route path={'/cadastro'} exact={true} component={props => <Cadastro {...props} />} />
         <Route path={'/Registrar'} exact={true} component={props => <Registrar {...props} />} />
         <Route path={'/login'} exact={true} component={props => <Login {...props} />} />

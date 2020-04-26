@@ -18,14 +18,14 @@ function Cadastro({ cadastro }) {
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Nome</Form.Label>
-          <Form.Control type="email" placeholder="Digite o Nome" />
+          <Form.Control type="email" placeholder="Informe o nome..." />
         </Form.Group>
       </Form.Row>
       <Form.Row>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Matrícula</Form.Label>
-          <Form.Control type="password" placeholder="Digite a Matrícula" />
+          <Form.Control type="password" placeholder="Informe a matrícula..." />
         </Form.Group>
       </Form.Row>
 

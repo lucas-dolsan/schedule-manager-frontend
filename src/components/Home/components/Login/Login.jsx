@@ -10,22 +10,13 @@ function Login() {
   const history = useHistory()
 
   async function onEnterButtonClick() {
-    const credentials = { login, password }
-    const message = await dataProvider.login(credentials)
-    switch (message.message) {
-      case 'Usuário inexistente':
-        openModal('Usuário inexistente')
-        routeHome("/login")
-        break
-      case 'Senha incorreta':
-        openModal('Senha incorreta')
-        routeHome("/login")
-        break
-      default:
-        openModal("Login Realizado com Sucesso!!")
-        routeHome("/homeNav")
-    }
-
+    const response = await dataProvider.login({ login, password })
+    if (response.accessToken) {
+         history.push('/home')
+    } else if(response.message) {
+        openModal(response.message)
+        redirect("/login")
+    } 
   }
 
   const routeCadastrar = () => {
@@ -36,7 +27,7 @@ function Login() {
   const openModal = (alerta) => {
     modalRef.current.openModal(alerta)
   };
-  const routeHome = (caminho) => {
+  const redirect = (caminho) => {
     modalRef.current.routerRedirect(caminho)
   };
 
@@ -58,7 +49,7 @@ function Login() {
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Login</Form.Label>
           <Form.Control onChange={event => setLogin(event.target.value)}
-            type="text" placeholder="Digite o Login" name="name" value={login} />
+            type="text" placeholder="Informe o login..." name="name" value={login} />
         </Form.Group>
       </Form.Row>
 
@@ -66,14 +57,14 @@ function Login() {
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Senha</Form.Label>
           <Form.Control onChange={event => setPassword(event.target.value)}
-            name="senha" value={password} type="password" placeholder="Digite a Senha" />
+            name="senha" value={password} type="password" placeholder="Informe a senha..." />
         </Form.Group>
       </Form.Row>
 
       <Form.Group id="formGridCheckbox">
       </Form.Group>
       <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
-        Submit
+        Entrar
       </Button>
       <Button className="btn-lg btn-block" variant="link" to="/cadastro" onClick={routeCadastrar}>
         Cadastrar
