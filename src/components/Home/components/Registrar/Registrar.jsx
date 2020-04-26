@@ -18,11 +18,11 @@ function Registrar() {
       const response = await dataProvider.cadastrar(credentials)
 
       if (response.message) {
-          openModal(response.message)
-          redirect("/registrar")
-      } else if(response.accessToken) {
-          openModal("Registro realizado com sucesso!")
-          redirect("/login")
+        openModal(response.message)
+        redirect("/registrar")
+      } else if (response.accessToken) {
+        openModal("Registro realizado com sucesso!")
+        redirect("/login")
       }
     } else {
       openModal("Senha não confere")
@@ -53,7 +53,7 @@ function Registrar() {
         </Col>
       </Row>
       <h2 className="text-center">Novo Registro</h2>
-      
+
 
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">

@@ -3,6 +3,7 @@ import { Atividade } from '../Atividade';
 import { Encarregado } from '../Encarregado';
 import { NavBar } from '../NavBar'
 import { TituloAtividade } from '../TituloAtividade'
+import { Nav, Table } from 'react-bootstrap'
 
 
 function renderAtividades(atividades) {
@@ -15,10 +16,12 @@ function Cronograma({ cronograma }) {
 
 
   return (
-    <div className="container border border-primary" >
-      <NavBar logo={cronograma.nome} />
+    <>
+      <NavBar nome={cronograma.nome} >
+        <Nav.Link href="/cronogramas" >Esse</Nav.Link>
 
-      <table class="table table-hover table-bordered">
+      </NavBar>
+      <Table striped bordered hover>
         <thead class="thead-dark">
           <tr>
             <th scope="col">Item</th>
@@ -37,10 +40,8 @@ function Cronograma({ cronograma }) {
           <TituloAtividade />
 
         </tbody>
-      </table>
-
-
-    </div>
+      </Table>
+    </>
   )
 }
 

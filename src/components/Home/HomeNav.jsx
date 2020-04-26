@@ -1,28 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { NavBar } from '../Home/components/NavBar'
-import { Jumbotron, Container, Image } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 
 
 
 function HomeNav() {
 
-  const imagem = require('../../Imagens/Fundo.jpg')
-  const modalRef = useRef()
-
-  console.log(modalRef.current)
-  const nomeCronograma = (nome) => {
-    modalRef.current.nomeCronograma(nome)
-  }
-
   return (
     <>
-      <NavBar ref={modalRef}></NavBar>
+      <NavBar nome={"Cronograma UHSP: "} />
       <Container>
-        <h1>Fluid jumbotron</h1>
-        <p>
-          This is a modified jumbotron that occupies the entire horizontal space of
-          its parent.
+        <h1 className="text-center" style={{ marginTop: "250px" }}>Gerenciador de Cronogramas</h1>
+        <p className="text-center">
+          Uma ótima maneira de organizar seus cronogramas, de maneira rápida e fácil!!!
     </p>
       </Container>
     </>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Form, Col, Button, Row } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 
 
 function Cadastro({ cadastro }) {
+  const history = useHistory()
+
   return (
     <Form className="login-form"
       style={{
@@ -41,7 +44,7 @@ function Cadastro({ cadastro }) {
 
       <Form.Group id="formGridCheckbox">
       </Form.Group>
-      <Button className="btn-lg btn-block" variant="dark" type="submit">
+      <Button className="btn-lg btn-block" variant="dark" type="submit" onClick={() => history.push('/home')}>
         Submit
       </Button>
 
