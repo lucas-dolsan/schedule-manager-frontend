@@ -13,7 +13,7 @@ function Cadastro({ cadastro }) {
         <Col lg="5">
         </Col>
       </Row>
-      <h1 className="text-center">Cadastro de ...</h1>
+      <h1 className="text-center">Cadastrar Colaborador</h1>
 
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">

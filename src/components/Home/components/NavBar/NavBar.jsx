@@ -19,8 +19,8 @@ const NavBar = forwardRef((props, ref) => {
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand >Cronograma UHSP: {value}</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link >Meus Cronogramas</Nav.Link>
-        <Nav.Link >Cadrastar Colaborador</Nav.Link>
+        <Nav.Link href="/cronogramas" >Meus Cronogramas</Nav.Link>
+        <Nav.Link href="/cadastro">Cadrastar Colaborador</Nav.Link>
         <Nav.Link >Sair</Nav.Link>
       </Nav>
       <Form inline>
