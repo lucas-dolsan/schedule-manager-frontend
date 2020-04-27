@@ -44,8 +44,11 @@ function Cadastro({ cadastro }) {
 
       <Form.Group id="formGridCheckbox">
       </Form.Group>
-      <Button className="btn-lg btn-block" variant="dark" type="submit" onClick={() => history.push('/home')}>
-        Submit
+      <Button className="btn-lg btn-block" variant="dark" type="submit">
+        Cadastrar
+      </Button>
+      <Button className="btn-lg btn-block" variant="link" onClick={() => history.push('/home')}>
+        Página inicial
       </Button>
 
     </Form>

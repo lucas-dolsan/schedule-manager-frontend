@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 function HomeNav() {
   return (
     <>
-      <NavBar hideHomeLink={true} nome={"Cronograma UHSP: "} />
+      <NavBar hideHomeLink={true} nome={"Cronogramas UHSP "} />
       <Container>
         <h1 className="text-center" style={{ marginTop: "250px" }}>
           Gerenciador de Cronogramas

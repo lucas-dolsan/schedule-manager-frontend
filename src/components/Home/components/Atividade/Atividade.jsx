@@ -12,6 +12,9 @@ function Atividade({ atividade }) {
       <td>{atividade.dataInicioAgendada}</td>
       <td>{atividade.dataFimAgendada}</td>
       <td>48</td>
+      <td></td>
+      <td></td>
+      <td></td>
 
     </tr>
   )
