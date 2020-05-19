@@ -1,13 +1,13 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
-function NavBar({ nome, hideHomeLink }) {
+function NavBar({ nome, hideHomeLink, hideMeusCronogramasLink }) {
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>{nome}</Navbar.Brand>
       <Nav className="mr-auto">
         {!hideHomeLink && <Nav.Link href="/home">Página inicial</Nav.Link>}
-        <Nav.Link href="/cronogramas">Meus Cronogramas</Nav.Link>
+        {!hideMeusCronogramasLink && <Nav.Link href="/TelaListaCronogramas">Meus Cronogramas</Nav.Link>}
         <Nav.Link href="/cadastro">Cadrastar Colaborador</Nav.Link>
       </Nav>
       <Form inline>

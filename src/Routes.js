@@ -5,6 +5,7 @@ import { Login } from "./components/Home/components/Login";
 import { Cadastro } from "./components/Home/components/Cadastro";
 import { Registrar } from "./components/Home/components/Registrar";
 import { Home } from "./components/Home/components/Home";
+import { TelaListaCronogramas } from "./components/Home/components/TelaListaCronogramas";
 
 function Routes() {
   return (
@@ -35,6 +36,11 @@ function Routes() {
           path={"/login"}
           exact={true}
           component={(props) => <Login {...props} />}
+        />
+        <Route
+          path={"/TelaListaCronogramas"}
+          exact={true}
+          component={(props) => <TelaListaCronogramas {...props} />}
         />
       </Switch>
     </BrowserRouter>
