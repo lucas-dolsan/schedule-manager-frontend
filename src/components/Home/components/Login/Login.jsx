@@ -12,11 +12,11 @@ function Login() {
   async function onEnterButtonClick() {
     const response = await dataProvider.login({ login, password })
     if (response.accessToken) {
-         history.push('/home')
-    } else if(response.message) {
-        openModal(response.message)
-        redirect("/login")
-    } 
+      history.push('/home')
+    } else if (response.message) {
+      openModal(response.message)
+      redirect("/login")
+    }
   }
 
   const routeCadastrar = () => {
@@ -66,7 +66,7 @@ function Login() {
       <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
         Entrar
       </Button>
-      <Button className="btn-lg btn-block" variant="link" to="/cadastro" onClick={routeCadastrar}>
+      <Button className="btn-lg btn-block" variant="link" to="/crudcronograma" onClick={routeCadastrar}>
         Cadastrar
       </Button>
       <Modal ref={modalRef}></Modal>

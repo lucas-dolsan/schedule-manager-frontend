@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { HomeNav } from "./components/Home";
 import { Login } from "./components/Home/components/Login";
-import { Cadastro } from "./components/Home/components/Cadastro";
+import { CrudCronograma } from "./components/Home/components/CrudCronograma";
 import { Registrar } from "./components/Home/components/Registrar";
 import { Home } from "./components/Home/components/Home";
 import { TelaListaCronogramas } from "./components/Home/components/TelaListaCronogramas";
@@ -23,9 +23,9 @@ function Routes() {
           component={(props) => <Home {...props} />}
         />
         <Route
-          path={"/cadastro"}
+          path={"/crudcronograma"}
           exact={true}
-          component={(props) => <Cadastro {...props} />}
+          component={(props) => <CrudCronograma {...props} />}
         />
         <Route
           path={"/Registrar"}
