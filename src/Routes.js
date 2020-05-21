@@ -6,6 +6,7 @@ import { CrudCronograma } from "./components/Home/components/CrudCronograma";
 import { Registrar } from "./components/Home/components/Registrar";
 import { Home } from "./components/Home/components/Home";
 import { Cronogramas } from "./components/Cronogramas";
+import { TelaListaCronogramas } from "./components/Home/components/TelaListaCronogramas"
 
 function Routes() {
   return (

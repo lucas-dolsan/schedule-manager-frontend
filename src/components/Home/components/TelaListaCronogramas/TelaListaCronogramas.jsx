@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavBar } from '../NavBar'
 import { Nav, Card, Container, Button, setOpen, Collapse, Table } from 'react-bootstrap'
 import { Tabela } from '../Tabela'
-import { Cronograma } from '../Cronograma'
+import { Cronogramas } from '../../../Cronogramas'
 import dataProvider from "../../../../data-provider";
 import endpoints from "../../../../constants/endpoints";
 import { Atividade } from '../Atividade';
