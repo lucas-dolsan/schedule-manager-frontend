@@ -67,7 +67,7 @@ function Login() {
       <Button className="btn-lg btn-block" onClick={onEnterButtonClick} variant="dark">
         Entrar
       </Button>
-      <Button className="btn-lg btn-block" variant="link" to="/cadastro" onClick={routeCadastrar}>
+      <Button className="btn-lg btn-block" variant="link" to="/crudcronograma" onClick={routeCadastrar}>
         Cadastrar
       </Button>
       <Modal ref={modalRef}></Modal>
