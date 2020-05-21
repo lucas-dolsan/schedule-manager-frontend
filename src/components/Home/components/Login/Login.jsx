@@ -12,7 +12,8 @@ function Login() {
   async function onEnterButtonClick() {
     const response = await dataProvider.login({ login, password })
     if (response.accessToken) {
-         history.push('/home')
+        localStorage.setItem("accessToken", response.accessToken);
+        history.push('/home')
     } else if(response.message) {
         openModal(response.message)
         redirect("/login")
