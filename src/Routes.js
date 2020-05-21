@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { HomeNav } from "./components/Home";
-import { Login } from "./components/Home/components/Login";
-import { Cadastro } from "./components/Home/components/Cadastro";
-import { Registrar } from "./components/Home/components/Registrar";
-import { Home } from "./components/Home/components/Home";
-import { Cronogramas } from "./components/Cronogramas";
+import { HomeNav } from "./screens/Home";
+import { Login } from "./screens/Home/components/Login";
+import { Cadastro } from "./screens/Home/components/Cadastro";
+import { Registrar } from "./screens/Home/components/Registrar";
+import { Home } from "./screens/Home/components/Home";
+import { Cronogramas } from "./screens/Cronogramas";
 
 function Routes() {
   return (
@@ -40,7 +40,7 @@ function Routes() {
         <Route
           path={"/TelaListaCronogramas"}
           exact={true}
-          component={(props) => <TelaListaCronogramas {...props} />}
+          component={(props) => null}
         />
       </Switch>
     </BrowserRouter>

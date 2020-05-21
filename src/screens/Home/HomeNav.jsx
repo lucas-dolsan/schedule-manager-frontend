@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../Home/components/NavBar";
+import { NavBar } from "./components/NavBar";
 import { Container } from "react-bootstrap";
 
 function HomeNav() {
