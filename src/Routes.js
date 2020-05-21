@@ -5,7 +5,7 @@ import { Login } from "./components/Home/components/Login";
 import { CrudCronograma } from "./components/Home/components/CrudCronograma";
 import { Registrar } from "./components/Home/components/Registrar";
 import { Home } from "./components/Home/components/Home";
-import { TelaListaCronogramas } from "./components/Home/components/TelaListaCronogramas";
+import { Cronogramas } from "./components/Cronogramas";
 
 function Routes() {
   return (
@@ -20,7 +20,7 @@ function Routes() {
         <Route
           path={"/cronogramas"}
           exact={true}
-          component={(props) => <Home {...props} />}
+          component={(props) => <Cronogramas {...props} />}
         />
         <Route
           path={"/crudcronograma"}

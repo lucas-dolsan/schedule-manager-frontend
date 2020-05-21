@@ -34,10 +34,7 @@ async function getList(endpoint) {
 
 async function login(credentials) {
   try {
-    const response = await axios.post(
-      `${remoteServerAddress}/authenticate`,
-      credentials
-    );
+    const response = await axios.post(`${remoteServerAddress}/authenticate`, credentials)
     return response.data;
   } catch (error) {
     throw error;
