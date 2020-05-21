@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { HomeNav } from "./components/Home";
-import { Login } from "./components/Home/components/Login";
+import { HomeNav } from "./screens/Home";
+import { Login } from "./screens/Home/components/Login";
 import { CrudCronograma } from "./components/Home/components/CrudCronograma";
-import { Registrar } from "./components/Home/components/Registrar";
-import { Home } from "./components/Home/components/Home";
-import { Cronogramas } from "./components/Cronogramas";
-import { TelaListaCronogramas } from "./components/Home/components/TelaListaCronogramas"
+import { Registrar } from "./screens/Home/components/Registrar";
+import { Home } from "./screens/Home/components/Home";
+import { Cronogramas } from "./screens/Cronogramas";
+import { TelaListaCronogramas } from "./screens/Home/components/TelaListaCronogramas"
 
 function Routes() {
   return (

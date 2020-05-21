@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Form, Col, Button, Row, Nav, Card, ListGroup, Container
 } from 'react-bootstrap'
-import { NavBar } from '../NavBar'
+import { NavBar } from '../../../../screens/Home/components/NavBar'
 import { useHistory } from 'react-router-dom'
 import { CrudAtividade } from '../CrudAtividade'
 
