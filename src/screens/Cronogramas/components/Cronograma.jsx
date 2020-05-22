@@ -1,19 +1,26 @@
-import React from "react"
-import { Card } from 'react-bootstrap'
+import React, { useState } from "react"
+import { Card, Accordion, Button } from 'react-bootstrap'
 import Atividade from "./Atividade"
 
 function Cronograma({ cronograma }) {
-    return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Body>
-            <Card.Title>{cronograma.nome}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{cronograma.encarregado.nome}</Card.Subtitle>
-            <Card.Text>{cronograma.descricao}</Card.Text>
-            {cronograma.atividades.map(atividade => <Atividade atividade={atividade} />)}
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-      </Card>
+  return (
+    <>
+      <Accordion defaultActiveKey="1">
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey="0" className="bg-dark text-white">
+            {cronograma.nome}
+          </Accordion.Toggle>
+
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              <Card.Subtitle className="mb-2 text-muted">{"cronograma.encarregado.nome"}</Card.Subtitle>
+              <Card.Text>{cronograma.descricao}</Card.Text>
+              {cronograma.atividades.map(atividade => <Atividade atividade={atividade} />)}
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+    </>
   )
 }
 

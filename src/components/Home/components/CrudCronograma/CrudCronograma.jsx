@@ -57,7 +57,7 @@ function CrudCronograma({ crudcronograma }) {
                   className="btn-lg btn-block"
                   variant="link"
                   to="/login"
-                  onClick={() => history.push("/TelaListaCronogramas")}
+                  onClick={() => history.push("/cronogramas")}
                 >
                   Cancelar
                   </Button>

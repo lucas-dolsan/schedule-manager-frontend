@@ -7,7 +7,7 @@ function NavBar({ nome, hideHomeLink, hideMeusCronogramasLink, hideCrudCronogram
       <Navbar.Brand>{nome}</Navbar.Brand>
       <Nav className="mr-auto">
         {!hideHomeLink && <Nav.Link href="/home">Página inicial</Nav.Link>}
-        {!hideMeusCronogramasLink && <Nav.Link href="/TelaListaCronogramas">Meus Cronogramas</Nav.Link>}
+        {!hideMeusCronogramasLink && <Nav.Link href="/cronogramas">Meus Cronogramas</Nav.Link>}
         {!hideCrudCronogramaLink && <Nav.Link href="/crudcronograma">Criar Cronograma</Nav.Link>}
       </Nav>
       <Form inline>

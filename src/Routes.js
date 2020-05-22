@@ -6,7 +6,6 @@ import { CrudCronograma } from "./components/Home/components/CrudCronograma";
 import { Registrar } from "./screens/Home/components/Registrar";
 import { Home } from "./screens/Home/components/Home";
 import { Cronogramas } from "./screens/Cronogramas";
-import { TelaListaCronogramas } from "./screens/Home/components/TelaListaCronogramas"
 
 function Routes() {
   return (
@@ -37,11 +36,6 @@ function Routes() {
           path={"/login"}
           exact={true}
           component={(props) => <Login {...props} />}
-        />
-        <Route
-          path={"/TelaListaCronogramas"}
-          exact={true}
-          component={(props) => null}
         />
       </Switch>
     </BrowserRouter>
