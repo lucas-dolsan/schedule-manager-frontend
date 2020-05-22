@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { HomeNav } from "./screens/Home";
 import { Login } from "./screens/Home/components/Login";
-import { CrudCronograma } from "./components/Home/components/CrudCronograma";
+import { CronogramaForm } from "./screens/CronogramaForm";
 import { Registrar } from "./screens/Home/components/Registrar";
 import { Home } from "./screens/Home/components/Home";
 import { Cronogramas } from "./screens/Cronogramas";
@@ -23,9 +23,9 @@ function Routes() {
           component={(props) => <Cronogramas {...props} />}
         />
         <Route
-          path={"/crudcronograma"}
+          path={"/create/cronograma"}
           exact={true}
-          component={(props) => <CrudCronograma {...props} />}
+          component={(props) => <CronogramaForm {...props} />}
         />
         <Route
           path={"/Registrar"}
@@ -37,6 +37,7 @@ function Routes() {
           exact={true}
           component={(props) => <Login {...props} />}
         />
+
       </Switch>
     </BrowserRouter>
   );

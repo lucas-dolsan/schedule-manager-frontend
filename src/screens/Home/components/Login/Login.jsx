@@ -10,7 +10,7 @@ function Login() {
   const history = useHistory()
 
   async function onEnterButtonClick() {
-    const response = await dataProvider.login({ login, password })
+    const response = await dataProvider.authenticate({ login, password })
     if (response.accessToken) {
         localStorage.setItem("accessToken", response.accessToken);
         history.push('/home')

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Modal, Col, Form } from 'react-bootstrap'
 
-function MyVerticallyCenteredModal(props) {
+function VerticalModal(props) {
   return (
     <Modal
       {...props}
@@ -50,18 +50,18 @@ function MyVerticallyCenteredModal(props) {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>OS</Form.Label>
-              <Form.Control />
+              <Form.Control type="text" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridZip">
               <Form.Label>AES</Form.Label>
-              <Form.Control />
+              <Form.Control type="text" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>Responsável</Form.Label>
-              <Form.Control as="select" value="Choose...">
-                <option>Choose...</option>
+              <Form.Control as="select" value="Selecione um responsável...">
+                <option>"Selecione um responsável..."</option>
                 <option>...</option>
               </Form.Control>
             </Form.Group>
@@ -80,7 +80,7 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function CrudAtividade() {
+function ModalFormAtividade() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -89,14 +89,12 @@ function CrudAtividade() {
         Cadastrar Atividade
       </Button>
 
-      <MyVerticallyCenteredModal
+      <VerticalModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-
-
     </>
   );
 }
 
-export default CrudAtividade
+export default ModalFormAtividade

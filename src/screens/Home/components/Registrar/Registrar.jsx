@@ -13,7 +13,7 @@ function Registrar() {
   async function onEnterButtonClick() {
     if (password && confirmPassword && password === confirmPassword) {
       const credentials = { login, password };
-      const response = await dataProvider.cadastrar(credentials);
+      const response = await dataProvider.registerUser(credentials);
 
       if (response.message) {
         openModal(response.message);

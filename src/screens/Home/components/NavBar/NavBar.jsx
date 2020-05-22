@@ -8,7 +8,7 @@ function NavBar({ nome, hideHomeLink, hideMeusCronogramasLink, hideCrudCronogram
       <Nav className="mr-auto">
         {!hideHomeLink && <Nav.Link href="/home">Página inicial</Nav.Link>}
         {!hideMeusCronogramasLink && <Nav.Link href="/cronogramas">Meus Cronogramas</Nav.Link>}
-        {!hideCrudCronogramaLink && <Nav.Link href="/crudcronograma">Criar Cronograma</Nav.Link>}
+        {!hideCrudCronogramaLink && <Nav.Link href="/create/cronograma">Criar Cronograma</Nav.Link>}
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />

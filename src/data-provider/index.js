@@ -1,3 +1,5 @@
+import endpoints from "../constants/endpoints";
+
 const { create } = require("axios").default;
 const remoteServerAddress = "http://localhost:3001";
 
@@ -25,26 +27,36 @@ async function getOne(endpoint, uuid) {
 
 async function getList(endpoint) {
   try {
-    const response = await axios.get(`${remoteServerAddress}${endpoint}`);
+    const response = await axios.get(`${remoteServerAddress}/${endpoint}`);
     return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-async function login(credentials) {
+async function authenticate(credentials) {
   try {
-    const response = await axios.post(`${remoteServerAddress}/authenticate`, credentials)
+    const response = await axios.post(`${remoteServerAddress}/${endpoints.AUTHENTICATE}`, credentials)
     return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-async function cadastrar(credentials) {
+async function createOne(endpoint, body) {
+  try {
+    const response = await axios.post(`${remoteServerAddress}/${endpoint}`, body)
+    return response
+  } catch (error) {
+    throw error
+  }
+
+}
+
+async function registerUser(credentials) {
   try {
     const response = await axios.post(
-      `${remoteServerAddress}/register`,
+      `${remoteServerAddress}/${endpoints.REGISTER_USER}`,
       credentials
     );
     return response.data;
@@ -56,6 +68,7 @@ async function cadastrar(credentials) {
 export default {
   getOne,
   getList,
-  login,
-  cadastrar,
+  authenticate,
+  createOne,
+  registerUser,
 };
