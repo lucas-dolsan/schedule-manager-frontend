@@ -1,7 +1,20 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { useHistory } from 'react-router-dom'
+
+async function handleLogout(navigateCallback) {
+  await localStorage.removeItem('accessToken')
+  navigateCallback()
+}
 
 function NavBar({ nome, hideHomeLink, hideMeusCronogramasLink, hideCrudCronogramaLink }) {
+  const history = useHistory()
+
+  const navigateCallback = () => {
+    history.push('/login')
+  }
+
+
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>{nome}</Navbar.Brand>
@@ -15,7 +28,9 @@ function NavBar({ nome, hideHomeLink, hideMeusCronogramasLink, hideCrudCronogram
         <Button variant="outline-light">Buscar</Button>
       </Form>
       <Nav>
-        <Nav.Link className="justify-content-end tc-light">Sair</Nav.Link>
+        <Nav.Link 
+        onClick={async () => await handleLogout(navigateCallback)}
+        className="justify-content-end tc-light">Sair</Nav.Link>
       </Nav>
     </Navbar>
   );

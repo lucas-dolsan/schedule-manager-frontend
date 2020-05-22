@@ -8,11 +8,16 @@ function Registrar() {
   const [login, setLogin] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+  const [nome, setNome] = useState(null);
+  const [matricula, setMatricula] = useState(null);
+  const [setor, setSetor] = useState(null);
+
   const history = useHistory();
 
   async function onEnterButtonClick() {
     if (password && confirmPassword && password === confirmPassword) {
-      const credentials = { login, password };
+      debugger
+      const credentials = { login, password, nome, matricula, setor };
       const response = await dataProvider.registerUser(credentials);
 
       if (response.message) {
@@ -93,6 +98,47 @@ function Registrar() {
             placeholder="Informe a senha..."
           />
         </Form.Group>
+      </Form.Row>
+
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridName">
+          <Form.Label>Nome</Form.Label>
+          <Form.Control
+            onChange={(event) => setNome(event.target.value)}
+            name="nome"
+            value={nome}
+            type="text"
+            placeholder="Informe o nome..."
+          />
+        </Form.Group>
+      </Form.Row>
+
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridMatricula">
+          <Form.Label>Matrícula</Form.Label>
+          <Form.Control
+            onChange={(event) => setMatricula(event.target.value)}
+            name="confirmaSenha"
+            value={matricula}
+            type="text"
+            placeholder="Informe a matrícula..."
+          />
+        </Form.Group>
+      </Form.Row>
+
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridSetor">
+              <Form.Label>Setor</Form.Label>
+              <Form.Control
+                name="setor"
+                as="select"
+                onChange={(event) => setSetor(event.target.value)}
+                value={setor}
+              >
+                <option>Mecânica</option>
+                <option>Elétrica</option>
+              </Form.Control>
+          </Form.Group>
       </Form.Row>
 
       <Form.Group id="formGridCheckbox"></Form.Group>
