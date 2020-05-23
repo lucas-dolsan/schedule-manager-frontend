@@ -8,6 +8,9 @@ import { ModalFormAtividade } from './components/ModalFormAtividade'
 import dataProvider from '../../data-provider';
 import endpoints from '../../constants/endpoints';
 
+function renderAtividades(atividades) {
+  return atividades.map(atividade => <Card>Atividade: {atividade.descricao}</Card>)
+}
 
 function CronogramaForm() {
   const history = useHistory()
@@ -15,14 +18,16 @@ function CronogramaForm() {
   const [nome, setNome] = useState('')
   const [descricao, setDescricao] = useState('')
   const [dataInicioAgendada, setDataInicioAgendada] = useState('')
-  const [dataFim, setDataFimAgendada] = useState('')
+  const [dataFimAgendada, setDataFimAgendada] = useState('')
+  const [atividades, setAtividades] = useState([])
 
   function handleChange(event, callback) {
     callback(event.target.value)
   }
 
   async function submit() {
-    await dataProvider.createOne(endpoints.CREATE_CRONOGRAMA, { nome, descricao, dataInicioAgendada, dataFim })
+    const { message } = await dataProvider.createOne(endpoints.CREATE_CRONOGRAMA, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
+    alert(message)
   }
 
   return (
@@ -42,38 +47,47 @@ function CronogramaForm() {
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Nome Cronograma</Form.Label>
                     <Form.Control 
-                    type="text" 
-                    onChange={event => handleChange(event, setNome)}
-                    placeholder="Digite o nome do cronograma" />
+                      type="text" 
+                      onChange={event => handleChange(event, setNome)}
+                      placeholder="Digite o nome do cronograma"
+                      value={nome ? nome : ''}
+                    />
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Descrição</Form.Label>
                     <Form.Control 
-                    type="text" 
-                    onChange={event => handleChange(event, setDescricao)}
-                    placeholder="Digite a descrição do cronograma" />
+                      type="text" 
+                      onChange={event => handleChange(event, setDescricao)}
+                      placeholder="Digite a descrição do cronograma"
+                      value={descricao ? descricao : ''}
+                    />
                   </Form.Group>
                 </Form.Row>
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Data de início agendada</Form.Label>
                     <Form.Control 
-                    type="date" 
-                    onChange={event => handleChange(event, setDataInicioAgendada)}
-                    placeholder="dd/mm/aaaa" />
+                      type="date" 
+                      onChange={event => handleChange(event, setDataInicioAgendada)}
+                      placeholder="dd/mm/aaaa"
+                      value={dataInicioAgendada ? dataInicioAgendada : ''}
+                    />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Data final prevista</Form.Label>
+                    <Form.Label>Data de fim agendada</Form.Label>
                     <Form.Control 
-                    type="date" 
-                    onChange={event => handleChange(event, setDataFimAgendada)}
-                    placeholder="dd/mm/aaaa" />
+                      type="date" 
+                      onChange={event => handleChange(event, setDataFimAgendada)}
+                      placeholder="dd/mm/aaaa"
+                      value={dataFimAgendada ? dataFimAgendada : ''}
+                    />
                   </Form.Group>
                 </Form.Row>
-                <ModalFormAtividade/>
+                {renderAtividades(atividades)}
+                <ModalFormAtividade setAtividadesCallback={(newAtividade) => setAtividades([...atividades, newAtividade])}/>
 
               </ListGroup.Item>
 
