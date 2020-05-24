@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Form, Col, Button, Row, Nav, Card, ListGroup, Container
 } from 'react-bootstrap'
+import { Modal } from '../Home/components/Modal'
 import { NavBar } from '../Home/components/NavBar'
 import { useHistory } from 'react-router-dom'
 import { ModalFormAtividade } from './components/ModalFormAtividade'
@@ -26,9 +27,23 @@ function CronogramaForm() {
   }
 
   async function submit() {
-    const { message } = await dataProvider.createOne(endpoints.CREATE_CRONOGRAMA, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
-    alert(message)
+    const message = await dataProvider.createOne(endpoints.CREATE_CRONOGRAMA, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
+    console.log(message.data.message)
+    if (message) {
+
+      openModal(message.data.message)
+      redirect("/cronogramas")
+    }
   }
+  const modalRef = React.useRef();
+
+  const openModal = (alerta) => {
+    modalRef.current.openModal(alerta)
+  };
+  const redirect = (caminho) => {
+    modalRef.current.routerRedirect(caminho)
+  };
+
 
   return (
     <>
@@ -46,8 +61,8 @@ function CronogramaForm() {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Nome Cronograma</Form.Label>
-                    <Form.Control 
-                      type="text" 
+                    <Form.Control
+                      type="text"
                       onChange={event => handleChange(event, setNome)}
                       placeholder="Digite o nome do cronograma"
                       value={nome ? nome : ''}
@@ -57,8 +72,8 @@ function CronogramaForm() {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Descrição</Form.Label>
-                    <Form.Control 
-                      type="text" 
+                    <Form.Control
+                      type="text"
                       onChange={event => handleChange(event, setDescricao)}
                       placeholder="Digite a descrição do cronograma"
                       value={descricao ? descricao : ''}
@@ -68,8 +83,8 @@ function CronogramaForm() {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridCity">
                     <Form.Label>Data de início agendada</Form.Label>
-                    <Form.Control 
-                      type="date" 
+                    <Form.Control
+                      type="date"
                       onChange={event => handleChange(event, setDataInicioAgendada)}
                       placeholder="dd/mm/aaaa"
                       value={dataInicioAgendada ? dataInicioAgendada : ''}
@@ -78,8 +93,8 @@ function CronogramaForm() {
 
                   <Form.Group as={Col} controlId="formGridZip">
                     <Form.Label>Data de fim agendada</Form.Label>
-                    <Form.Control 
-                      type="date" 
+                    <Form.Control
+                      type="date"
                       onChange={event => handleChange(event, setDataFimAgendada)}
                       placeholder="dd/mm/aaaa"
                       value={dataFimAgendada ? dataFimAgendada : ''}
@@ -87,7 +102,7 @@ function CronogramaForm() {
                   </Form.Group>
                 </Form.Row>
                 {renderAtividades(atividades)}
-                <ModalFormAtividade setAtividadesCallback={(newAtividade) => setAtividades([...atividades, newAtividade])}/>
+                <ModalFormAtividade setAtividadesCallback={(newAtividade) => setAtividades([...atividades, newAtividade])} />
 
               </ListGroup.Item>
 
@@ -112,6 +127,7 @@ function CronogramaForm() {
           </Card.Body>
         </Card>
       </Container>
+      <Modal ref={modalRef}></Modal>
     </>
   )
 }
