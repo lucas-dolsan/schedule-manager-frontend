@@ -16,7 +16,7 @@ function Cronograma({ cronograma }) {
 
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <Card.Subtitle className="mb-2 text-muted">{"cronograma.encarregado.nome"}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{cronograma.encarregado.nome}</Card.Subtitle>
               {cronograma.atividades.map(atividade => <Atividade atividade={atividade} />)}
             </Card.Body>
           </Accordion.Collapse>

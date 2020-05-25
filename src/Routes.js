@@ -13,7 +13,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect from={"/"} exact={true} to={isAuthenticated ? "/home" : "/login"} />
+        <Redirect from={"/"} exact={true} to={isAuthenticated ? "/login" : "/login"} />
         <Route
           path={"/home"}
           exact={true}

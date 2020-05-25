@@ -120,7 +120,7 @@ function VerticalModal({show, onHide, setAtividadesCallback}) {
             <Form.Group as={Col} controlId="formGridOS">
               <Form.Label>OS</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 onChange={event => setOS(event.target.value)}
                 value={OS ? OS : ''}
               />
@@ -131,7 +131,7 @@ function VerticalModal({show, onHide, setAtividadesCallback}) {
               <Form.Control
                 onChange={event => setAES(event.target.value)}
                 value={AES ? AES : ''}
-                type="text"
+                type="number"
               />
             </Form.Group>
 
