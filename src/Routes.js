@@ -3,11 +3,12 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { HomeNav } from "./screens/Home";
 import { Login } from "./screens/Home/components/Login";
 import { CronogramaForm } from "./screens/CronogramaForm";
+import { CronogramaView } from "./screens/CronogramaView";
 import { Registrar } from "./screens/Home/components/Registrar";
 import { Home } from "./screens/Home/components/Home";
 import { Cronogramas } from "./screens/Cronogramas";
 
-const isAuthenticated = async () => await localStorage.getItem("accessToken") 
+const isAuthenticated = async () => await localStorage.getItem("accessToken")
 
 function Routes() {
   return (
@@ -23,6 +24,11 @@ function Routes() {
           path={"/cronogramas"}
           exact={true}
           component={(props) => <Cronogramas {...props} />}
+        />
+        <Route
+          path={"/cronogramaview"}
+          exact={true}
+          component={(props) => <CronogramaView {...props} />}
         />
         <Route
           path={"/create/cronograma"}

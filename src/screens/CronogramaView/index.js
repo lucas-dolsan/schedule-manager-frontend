@@ -1,0 +1,1 @@
+export { default as CronogramaView } from './CronogramaView.jsx';

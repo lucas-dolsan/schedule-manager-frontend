@@ -4,7 +4,7 @@ import dataProvider from '../../../../data-provider'
 import endpoints from '../../../../constants/endpoints'
 
 
-function VerticalModal({show, onHide, setAtividadesCallback}) {
+function VerticalModal({ show, onHide, setAtividadesCallback }) {
   const [colaboradores, setColaboradores] = useState(null)
   const [dataInicioAgendada, setDataInicioAgendada] = useState(null)
   const [horaInicioAgendada, setHoraInicioAgendada] = useState(null)
@@ -16,20 +16,20 @@ function VerticalModal({show, onHide, setAtividadesCallback}) {
   const [AES, setAES] = useState(null)
   const [executor, setExecutor] = useState(null)
 
-  function formatDate(date, time) {    
+  function formatDate(date, time) {
     return new Date(`${date} ${time}`)
   }
 
   async function submit(setAtividadesCallback, onHideCallback) {
 
     const atividade = {
-      dataInicioAgendada: formatDate(dataInicioAgendada, horaInicioAgendada), 
-      dataFimAgendada: formatDate(dataFimAgendada, horaFimAgendada),  
-      descricao,  
-      observacao, 
-      OS, 
-      AES,  
-      executor, 
+      dataInicioAgendada: formatDate(dataInicioAgendada, horaInicioAgendada),
+      dataFimAgendada: formatDate(dataFimAgendada, horaFimAgendada),
+      descricao,
+      observacao,
+      OS,
+      AES,
+      executor,
     }
 
     setAtividadesCallback(atividade)
@@ -39,9 +39,9 @@ function VerticalModal({show, onHide, setAtividadesCallback}) {
   useEffect(() => {
     async function getColaboradores() {
       const { users } = await dataProvider.getList(endpoints.USERS)
-      setColaboradores(users) 
+      setColaboradores(users)
     }
-    getColaboradores() 
+    getColaboradores()
   }, [])
 
   return (
@@ -155,6 +155,7 @@ function VerticalModal({show, onHide, setAtividadesCallback}) {
         >Fechar</Button>
         <Button
           variant="primary"
+          type='submit'
           onClick={() => submit(setAtividadesCallback, onHide)}
         >Salvar atividade</Button>
       </Modal.Footer>
