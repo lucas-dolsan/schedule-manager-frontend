@@ -4,6 +4,7 @@ import endpoints from "../../constants/endpoints"
 import { Card, Nav, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
 import Cronograma from "../Cronogramas/components/Cronograma"
 import { NavBar } from "../Home/components/NavBar"
+import AtividadeView from "./components/AtividadeView"
 
 function CronogramaView() {
     const [cronogramas, setCronogramas] = useState(null)
@@ -55,16 +56,11 @@ function CronogramaView() {
                                     </Form.Group>
                                 </Form.Row>
                             </ListGroup.Item>
-
-
                         </ListGroup>
-                        <Card.Text>Atividade 1 </Card.Text>
-                        <Card.Text>Descrição Atividade </Card.Text>
-                        <ProgressBar animated now={60} label={`${60}%`} />
-                        <br />
-                        <Card.Text>Atividade 2 </Card.Text>
-                        <Card.Text>Descrição Atividade </Card.Text>
-                        <ProgressBar animated now={76} label={`${76}%`} />
+                        {/* {cronograma.atividades.map(atividade => <AtividadeView atividade={atividade} />)} */}
+                        <AtividadeView />
+                        <AtividadeView />
+                        <AtividadeView />
                     </Card.Body>
                 </Card>
             </Container>
