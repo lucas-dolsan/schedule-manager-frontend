@@ -26,7 +26,7 @@ function Routes() {
           component={(props) => <Cronogramas {...props} />}
         />
         <Route
-          path={"/cronogramaview"}
+          path={"/cronogramaview/:id"}
           exact={true}
           component={(props) => <CronogramaView {...props} />}
         />

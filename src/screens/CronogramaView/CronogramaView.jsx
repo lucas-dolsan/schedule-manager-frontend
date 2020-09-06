@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react"
 import dataProvider from "../../data-provider"
 import endpoints from "../../constants/endpoints"
-import { Card, Nav, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
+import { Card, Nav, Container, Col, Form, ListGroup } from 'react-bootstrap'
 import Cronograma from "../Cronogramas/components/Cronograma"
 import { NavBar } from "../Home/components/NavBar"
 import AtividadeView from "./components/AtividadeView"
 
-function CronogramaView() {
-    const [cronogramas, setCronogramas] = useState(null)
+function CronogramaView(props) {
+    const [cronograma, setCronograma] = useState(null)
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
+        console.log(props.match.params.id)
+        async function getCronograma() {
+            const cronograma = await dataProvider.getOne(endpoints.CRONOGRAMAS, props.match.params.id)
+            setCronograma(cronograma)
 
-        async function getCronogramas() {
-            const { cronogramas } = await dataProvider.getList(endpoints.CRONOGRAMAS)
-            setCronogramas(cronogramas)
         }
-        getCronogramas()
+        getCronograma()
     }, [])
 
-    if (!cronogramas)
+    if (!cronograma)
         return (
             <>
                 <NavBar hideHomeLink={true} nome={"Cronogramas UHSP "} >

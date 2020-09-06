@@ -18,7 +18,7 @@ function Cronograma({ cronograma }) {
             <Card.Body>
               {cronograma.atividades.map(atividade => <Atividade atividade={atividade} />)}
               <br />
-              <Button variant="link" style={{ color: 'black' }} href="/cronogramaview">Abrir Cronograma</Button>
+              <Button variant="link" style={{ color: 'black' }} href={`cronogramaview/${cronograma._id}`}>Abrir Cronograma</Button>
 
             </Card.Body>
           </Accordion.Collapse>
