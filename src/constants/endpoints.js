@@ -1,8 +1,7 @@
 export default {
   CRONOGRAMAS: "api/cronogramas",
   ATIVIDADES: "api/atividades",
-  AUTHENTICATE: 'api/authenticate',
+  LOGIN: 'api/auth/login',
   USERS: "api/users",
-  REGISTER_USER: 'api/register',
-  CREATE_CRONOGRAMA: 'api/create/cronograma'
+  REGISTER: 'api/auth/register',
 };

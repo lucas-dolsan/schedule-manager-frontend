@@ -8,13 +8,14 @@ import { Registrar } from "./screens/Home/components/Registrar";
 import { Home } from "./screens/Home/components/Home";
 import { Cronogramas } from "./screens/Cronogramas";
 
-const isAuthenticated = async () => await localStorage.getItem("accessToken")
+
+const isAuthenticated = !!localStorage.getItem("accessToken")
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Redirect from={"/"} exact={true} to={isAuthenticated ? "/login" : "/login"} />
+        <Redirect from={"/"} exact={true} to={isAuthenticated ? "/home" : "/login"} />
         <Route
           path={"/home"}
           exact={true}

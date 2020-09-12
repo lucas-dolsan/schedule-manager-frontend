@@ -27,7 +27,7 @@ function CronogramaForm() {
   }
 
   async function submit() {
-    const message = await dataProvider.createOne(endpoints.CREATE_CRONOGRAMA, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
+    const message = await dataProvider.createOne(endpoints.CRONOGRAMAS, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
     console.log(message.data.message)
     if (message) {
 

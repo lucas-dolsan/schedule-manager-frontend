@@ -11,11 +11,9 @@ function CronogramaView(props) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log(props.match.params.id)
         async function getCronograma() {
             const cronograma = await dataProvider.getOne(endpoints.CRONOGRAMAS, props.match.params.id)
             setCronograma(cronograma)
-
         }
         getCronograma()
     }, [])
@@ -65,14 +63,6 @@ function CronogramaView(props) {
                     </Card.Body>
                 </Card>
             </Container>
-        </>
-    )
-
-
-
-    return (
-        <>
-
         </>
     )
 }

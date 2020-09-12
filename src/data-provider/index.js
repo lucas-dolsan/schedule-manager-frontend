@@ -16,7 +16,7 @@ const axios = create({
 
 async function getOne(endpoint, uuid) {
   try {
-    const response = await axios.get(`${remoteServerAddress}${endpoint}?id=${uuid}`)
+    const response = await axios.get(`${remoteServerAddress}${endpoint}/${uuid}`)
     return response.data;
   } catch (error) {
     throw error;
@@ -32,9 +32,9 @@ async function getList(endpoint) {
   }
 }
 
-async function authenticate(credentials) {
+async function login(credentials) {
   try {
-    const response = await axios.post(`${remoteServerAddress}/${endpoints.AUTHENTICATE}`, credentials)
+    const response = await axios.post(`${remoteServerAddress}/${endpoints.LOGIN}`, credentials)
     return response.data;
   } catch (error) {
     throw error;
@@ -54,7 +54,7 @@ async function createOne(endpoint, body) {
 async function registerUser(credentials) {
   try {
     const response = await axios.post(
-      `${remoteServerAddress}/${endpoints.REGISTER_USER}`,
+      `${remoteServerAddress}/${endpoints.REGISTER}`,
       credentials
     );
     return response.data;
@@ -66,7 +66,7 @@ async function registerUser(credentials) {
 export default {
   getOne,
   getList,
-  authenticate,
+  login,
   createOne,
   registerUser,
 };

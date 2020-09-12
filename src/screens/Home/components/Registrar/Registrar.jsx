@@ -16,7 +16,6 @@ function Registrar() {
 
   async function onEnterButtonClick() {
     if (password && confirmPassword && password === confirmPassword) {
-      debugger
       const credentials = { login, password, nome, matricula, setor };
       const response = await dataProvider.registerUser(credentials);
 
