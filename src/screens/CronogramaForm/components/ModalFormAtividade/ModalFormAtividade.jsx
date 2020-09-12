@@ -38,8 +38,11 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
 
   useEffect(() => {
     async function getColaboradores() {
-      const { users } = await dataProvider.getList(endpoints.USERS)
-      setColaboradores(users)
+      const { colaboradores } = await dataProvider.getList(endpoints.USERS)
+      if(colaboradores.length === 1) {
+        setExecutor(colaboradores[0]._id)
+      }
+      setColaboradores(colaboradores)
     }
     getColaboradores()
   }, [])
@@ -140,8 +143,9 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
               <Form.Control
                 as="select"
                 value={executor ? executor : ''}
-                onChange={event => setExecutor(event.target.value)}
+                onChange={event => console.log(event.nativeEvent)}
               >
+                <option key={'saedfsdfs'}>{'teste'}</option>
                 {colaboradores ? colaboradores.map(({ nome, id }) => <option key={id}>{nome}</option>) : null}
               </Form.Control>
             </Form.Group>
