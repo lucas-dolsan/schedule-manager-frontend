@@ -73,11 +73,21 @@ async function startCronograma(endpoint) {
   }
 }
 
+async function getFilteredCronogramas() {
+  try {
+    const response = await axios.get(`${remoteServerAddress}/${endpoints.CRONOGRAMAS}/filtered`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export default {
   getOne,
   getList,
   login,
   createOne,
   registerUser,
+  getFilteredCronogramas,
   startCronograma,
 };

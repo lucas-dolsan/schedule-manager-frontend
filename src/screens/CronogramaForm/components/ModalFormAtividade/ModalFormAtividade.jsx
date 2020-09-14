@@ -58,6 +58,15 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
     getColaboradores()
   }, [])
 
+  function handleExecutorChange(event) {
+    if(!event.target.value) {
+      return
+    }
+    const username = event.target.value
+    const user = colaboradores.find(colaborador => colaborador.nome === username)
+    setExecutor(user._id)
+  }
+
   return (
     <Modal
       show={show}
@@ -153,11 +162,10 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
               <Form.Label>Executor</Form.Label>
               <Form.Control
                 as="select"
-                value={executor ? executor : ''}
-                onChange={event => console.log(event.nativeEvent)}
+                value={executor ? executor.nome : ''}
+                onChange={handleExecutorChange}
               >
-                <option key={'saedfsdfs'}>{'teste'}</option>
-                {colaboradores ? colaboradores.map(({ nome, id }) => <option key={id}>{nome}</option>) : null}
+                {colaboradores ? colaboradores.map(({ nome, _id }) => <option key={_id}>{nome}</option>) : null}
               </Form.Control>
             </Form.Group>
           </Form.Row>
