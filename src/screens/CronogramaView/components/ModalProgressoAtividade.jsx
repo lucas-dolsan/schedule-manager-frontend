@@ -6,25 +6,12 @@ import endpoints from '../../../../constants/endpoints'
 
 function VerticalModal({ show, onHide, setAtividadesCallback }) {
     const [colaboradores, setColaboradores] = useState(null)
-    const [dataInicioAgendada, setDataInicioAgendada] = useState(null)
-    const [horaInicioAgendada, setHoraInicioAgendada] = useState(null)
-    const [dataFimAgendada, setDataFimAgendada] = useState(null)
-    const [horaFimAgendada, setHoraFimAgendada] = useState(null)
-    const [descricao, setDescricao] = useState(null)
-    const [observacao, setObservacao] = useState(null)
-    const [OS, setOS] = useState(null)
-    const [AES, setAES] = useState(null)
-    const [executor, setExecutor] = useState(null)
-
-    function formatDate(date, time) {
-        return new Date(`${date} ${time}`)
-    }
 
     async function submit(setAtividadesCallback, onHideCallback) {
 
         const atividade = {
-            dataInicioAgendada: formatDate(dataInicioAgendada, horaInicioAgendada),
-            dataFimAgendada: formatDate(dataFimAgendada, horaFimAgendada),
+            dataInicioAgendada,
+            dataFimAgendada,
             descricao,
             observacao,
             OS,
@@ -56,7 +43,7 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Digite a porcentagem do progresso:</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
@@ -71,16 +58,11 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
     );
 }
 
-function ModalFormAtividade({ setAtividadesCallback }) {
+function ModalProgressoAtividade({ setAtividadesCallback }) {
     const [modalShow, setModalShow] = React.useState(false)
 
     return (
         <>
-            <Button
-                className="btn-lg btn-block" variant="dark" onClick={() => setModalShow(true)}>
-                Cadastrar Atividade
-      </Button>
-
             <VerticalModal
                 show={modalShow}
                 setAtividadesCallback={setAtividadesCallback}
@@ -90,4 +72,4 @@ function ModalFormAtividade({ setAtividadesCallback }) {
     )
 }
 
-export default ModalFormAtividade
+export default ModalProgressoAtividade
