@@ -1,4 +1,5 @@
 import React from "react"
+import ModalProgressoAtividade from "./ModalProgressoAtividade"
 import { Card, Button, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
 
 function AtividadeView({ atividade }) {
@@ -19,6 +20,7 @@ function AtividadeView({ atividade }) {
             return dados
         }
     }
+
     return (
         <>
             <br />
@@ -55,9 +57,9 @@ function AtividadeView({ atividade }) {
                     <Card.Text>Descrição Atividade: {atividade.descricao} </Card.Text>
                     <ProgressBar animated now={60} label={`${60}%`} />
                     <br />
+                    <ModalProgressoAtividade></ModalProgressoAtividade>
                 </ListGroup.Item>
             </ListGroup>
-            <Button variant="link" style={{ color: 'black' }} href='#'>Abrir Cronograma</Button>
         </>
         //    <div>
         //
