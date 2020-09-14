@@ -16,7 +16,8 @@ const axios = create({
 
 async function getOne(endpoint, uuid) {
   try {
-    const response = await axios.get(`${remoteServerAddress}${endpoint}/${uuid}`)
+    console.log(`${remoteServerAddress}${endpoint}/${uuid}`)
+    const response = await axios.get(`${remoteServerAddress}/${endpoint}/${uuid}`)
     return response.data;
   } catch (error) {
     throw error;

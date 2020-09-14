@@ -2,6 +2,7 @@ import React from "react"
 import { Card, Nav, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
 
 function AtividadeView({ atividade }) {
+    console.log({ atividade })
     const now = 60;
     return (
         <>
@@ -11,29 +12,29 @@ function AtividadeView({ atividade }) {
                 <ListGroup.Item>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>Data de início agendada: dd/mm/aaaa</Form.Label>
+                            <Form.Label>Data de início agendada: {atividade.dataInicioAgendada}</Form.Label>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridZip">
-                            <Form.Label>Data de fim agendada: dd/mm/aaaa</Form.Label>
+                            <Form.Label>Data de fim agendada: {atividade.dataFimAgendada}</Form.Label>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>Data de início: dd/mm/aaaa</Form.Label>
+                            <Form.Label>Data de início: {atividade.dataInicio}</Form.Label>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridZip">
-                            <Form.Label>Data de fim: dd/mm/aaaa</Form.Label>
+                            <Form.Label>Data de fim: {atividade.dataFim}</Form.Label>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>OS: 0000</Form.Label>
+                            <Form.Label>OS: {atividade.OS}</Form.Label>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridZip">
-                            <Form.Label>AES: 0000</Form.Label>
+                            <Form.Label>AES: {atividade.AES}</Form.Label>
                         </Form.Group>
                     </Form.Row>
                     <Card.Text>Descrição Atividade </Card.Text>
