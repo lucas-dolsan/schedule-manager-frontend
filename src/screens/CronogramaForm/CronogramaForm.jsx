@@ -28,9 +28,7 @@ function CronogramaForm() {
 
   async function submit() {
     const message = await dataProvider.createOne(endpoints.CRONOGRAMAS, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
-    console.log(message.data.message)
     if (message) {
-
       openModal(message.data.message)
       redirect("/cronogramas")
     }
