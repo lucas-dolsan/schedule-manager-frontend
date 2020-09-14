@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, Nav, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
+import { Card, Button, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
 
 function AtividadeView({ atividade }) {
     console.log({ atividade })
@@ -57,6 +57,7 @@ function AtividadeView({ atividade }) {
                     <br />
                 </ListGroup.Item>
             </ListGroup>
+            <Button variant="link" style={{ color: 'black' }} href='#'>Abrir Cronograma</Button>
         </>
         //    <div>
         //

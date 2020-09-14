@@ -34,7 +34,7 @@ function CronogramaView(props) {
     async function iniciarCronograma() {
         const response = await dataProvider.registerUser(cronograma.id);
         if (response.success) {
-            setIniciao(true)
+            setIniciado(true)
         }
     }
 
