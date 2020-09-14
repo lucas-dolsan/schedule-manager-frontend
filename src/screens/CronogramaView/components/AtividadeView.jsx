@@ -4,6 +4,21 @@ import { Card, Nav, Container, ProgressBar, Col, Form, ListGroup } from 'react-b
 function AtividadeView({ atividade }) {
     console.log({ atividade })
     const now = 60;
+
+    function dateFormat(date) {
+        date = new Date();
+        return date.toLocaleString()
+    }
+    function verInicio(dados, string) {
+        console.log(dados)
+        if (dados == null && string == 'inicio') {
+            return 'Cronograma não iniciado'
+        } else if (dados == null && string == 'fim') {
+            return 'Cronograma em execução'
+        } else {
+            return dados
+        }
+    }
     return (
         <>
             <br />
@@ -12,20 +27,20 @@ function AtividadeView({ atividade }) {
                 <ListGroup.Item>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>Data de início agendada: {atividade.dataInicioAgendada}</Form.Label>
+                            <Form.Label>Data de início agendada: {dateFormat(atividade.dataInicioAgendada)}</Form.Label>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridZip">
-                            <Form.Label>Data de fim agendada: {atividade.dataFimAgendada}</Form.Label>
+                            <Form.Label>Data de fim agendada: {dateFormat(atividade.dataFimAgendada)}</Form.Label>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>Data de início: {atividade.dataInicio}</Form.Label>
+                            <Form.Label>Data de início: {verInicio(dateFormat(atividade.dataInicio), 'inicio')}</Form.Label>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridZip">
-                            <Form.Label>Data de fim: {atividade.dataFim}</Form.Label>
+                            <Form.Label>Data de fim: {verInicio(dateFormat(atividade.dataFim), 'fim')}</Form.Label>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
@@ -37,7 +52,7 @@ function AtividadeView({ atividade }) {
                             <Form.Label>AES: {atividade.AES}</Form.Label>
                         </Form.Group>
                     </Form.Row>
-                    <Card.Text>Descrição Atividade </Card.Text>
+                    <Card.Text>Descrição Atividade: {atividade.descricao} </Card.Text>
                     <ProgressBar animated now={60} label={`${60}%`} />
                     <br />
                 </ListGroup.Item>

@@ -64,10 +64,20 @@ async function registerUser(credentials) {
   }
 }
 
+async function startCronograma(endpoint) {
+  try {
+    const response = await axios.get(`${remoteServerAddress}/${endpoint}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export default {
   getOne,
   getList,
   login,
   createOne,
   registerUser,
+  startCronograma,
 };
