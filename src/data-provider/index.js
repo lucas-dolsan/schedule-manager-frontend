@@ -24,9 +24,9 @@ async function getOne(endpoint, uuid) {
   }
 }
 
-async function getList(endpoint) {
+async function getList(endpoint, args) {
   try {
-    const response = await axios.get(`${remoteServerAddress}/${endpoint}`);
+    const response = await axios.get(`${remoteServerAddress}/${endpoint}${args ? args : ""}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -64,6 +64,18 @@ async function registerUser(credentials) {
   }
 }
 
+async function setProgressoAtividade(body) {
+  try {
+    const response = await axios.post(
+      `${remoteServerAddress}/${endpoints.ATIVIDADES}/set-progresso`,
+      body
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function startCronograma(endpoint) {
   try {
     const response = await axios.get(`${remoteServerAddress}/${endpoint}`);
@@ -90,4 +102,5 @@ export default {
   registerUser,
   getFilteredCronogramas,
   startCronograma,
+  setProgressoAtividade
 };

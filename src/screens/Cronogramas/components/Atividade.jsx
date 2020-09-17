@@ -7,7 +7,7 @@ function Atividade({ atividade }) {
       <div>
         
       <h3>{atividade.numeroItem}</h3>
-      <h7>Executor - {atividade.executor.nome}</h7>
+      <h7>Executor - {atividade.executor ? atividade.executor.nome : ""}</h7>
       <br/>
       <h7>OS - {atividade.OS} - </h7>
       <h7>AES - {atividade.AES}</h7>

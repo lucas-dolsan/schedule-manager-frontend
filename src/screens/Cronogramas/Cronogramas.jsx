@@ -12,7 +12,7 @@ function Cronogramas() {
   useEffect(() => {
 
     async function getCronogramas() {
-      const { cronogramas } = await dataProvider.getList(endpoints.CRONOGRAMAS)
+      const { cronogramas } = await dataProvider.getList(endpoints.CRONOGRAMAS, '/filtered')
       setCronogramas(cronogramas)
     }
     getCronogramas()

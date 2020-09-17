@@ -27,7 +27,16 @@ function CronogramaForm() {
   }
 
   async function submit() {
-    const message = await dataProvider.createOne(endpoints.CRONOGRAMAS, { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades })
+    const body = { nome, descricao, dataInicioAgendada, dataFimAgendada, atividades }
+
+    for (const field in body) {
+        if(!body[field]) {
+          alert("Formulário preenchido incorretamente")
+          return
+        }        
+    }
+
+    const message = await dataProvider.createOne(endpoints.CRONOGRAMAS, body)
     if (message) {
       openModal(message.data.message)
       redirect("/cronogramas")

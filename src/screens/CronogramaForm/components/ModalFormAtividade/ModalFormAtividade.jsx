@@ -32,7 +32,6 @@ function VerticalModal({ show, onHide, setAtividadesCallback }) {
       executor,
     }
 
-    setColaboradores(null)
     setDataInicioAgendada(null)
     setHoraInicioAgendada(null)
     setDataFimAgendada(null)
