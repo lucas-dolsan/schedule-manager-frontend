@@ -2,10 +2,10 @@ import React from "react"
 import ModalProgressoAtividade from "./ModalProgressoAtividade"
 import { Card, Button, Container, ProgressBar, Col, Form, ListGroup } from 'react-bootstrap'
 
-function AtividadeView({ atividade, progressoSetCallback}) {
+function AtividadeView({ atividade, progressoSetCallback }) {
     function dateFormat(dateString, shouldReturnNull) {
-        if(!dateString) {
-            if(shouldReturnNull) {
+        if (!dateString) {
+            if (shouldReturnNull) {
                 return null
             } else {
                 return ""
@@ -25,8 +25,8 @@ function AtividadeView({ atividade, progressoSetCallback}) {
     return (
         <>
             <br />
-    <Card.Title style={{fontWeight: 'bold'}}>Atividade: {atividade.numeroItem}</Card.Title>
-        <Card.Text>Executor: {atividade.executor.nome}</Card.Text>
+            <Card.Title style={{ fontWeight: 'bold' }}>Atividade: {atividade.numeroItem}</Card.Title>
+            <Card.Text>Executor: {atividade.executor ? atividade.executor.nome : null}</Card.Text>
             <ListGroup variant="flush">
                 <ListGroup.Item>
                     <Form.Row>
@@ -59,7 +59,7 @@ function AtividadeView({ atividade, progressoSetCallback}) {
                     <Card.Text>Descrição Atividade: {atividade.descricao} </Card.Text>
                     <ProgressBar variant="info" animated now={atividade.progresso || 0} label={`${atividade.progresso || 0}%`} />
                     <br />
-                    <ModalProgressoAtividade atividade={atividade} progressoSetCallback={progressoSetCallback}/>
+                    <ModalProgressoAtividade atividade={atividade} progressoSetCallback={progressoSetCallback} />
                 </ListGroup.Item>
             </ListGroup>
         </>
