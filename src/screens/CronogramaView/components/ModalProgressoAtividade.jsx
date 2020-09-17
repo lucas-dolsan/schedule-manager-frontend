@@ -13,7 +13,7 @@ function ModalProgressoAtividade({ setAtividadesCallback }) {
     return (
         <>
 
-            <Button variant="link" style={{ color: 'black' }} onClick={handleShow}>Abrir Cronograma</Button>
+            <Button variant="link" style={{ color: 'black' }} onClick={handleShow}>Definir Progresso</Button>
 
             <Modal show={show} onHide={handleClose}
 
